@@ -14,7 +14,8 @@ async function getChampionData() {
 
 
 function putDataOnPage(dataToDisplay) {
-    document.getElementsByClassName("championName")[0].textContent = dataToDisplay.name;
+    let championNameElement = document.getElementsByClassName("championName")[0];
+    championNameElement.textContent = dataToDisplay.name + ", " + dataToDisplay.title;
 
     let tag1Display = document.getElementsByClassName("championTag1")[0];
     let tag2Display = document.getElementsByClassName("championTag2")[0];
