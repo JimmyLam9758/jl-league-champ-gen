@@ -13,19 +13,19 @@ async function getChampionData() {
 }
 
 
-function putDataOnPage(dataToDisplay){
+function putDataOnPage(dataToDisplay) {
     document.getElementsByClassName("championName")[0].textContent = dataToDisplay.name;
 
     let tag1Display = document.getElementsByClassName("championTag1")[0];
     let tag2Display = document.getElementsByClassName("championTag2")[0];
 
-    tag1Display.textContent = "Tag 1: " + dataToDisplay.tags[0].tag.name;
+    tag1Display.textContent = "Tag 1: " + dataToDisplay.tags[0];
 
-    if (dataToDisplay.types[1]){
+    if (dataToDisplay.tags[1]) {
         // if the data includes a 2nd tag, set that aswell
-        tag2Display.textContext = "Tag 2: " + dataToDisplay.tags[1].tag.name;
-    } else{
-        // if no 2nd tag exists, reset content in type 2 display
+        tag2Display.textContent = "Tag 2: " + dataToDisplay.tags[1];
+    } else {
+        // if no 2nd tag exists, reset content in tag 2 display
         tag2Display.textContent = "Tag 2: ";
     }
 
@@ -33,8 +33,6 @@ function putDataOnPage(dataToDisplay){
     let imageElement = imageContainer.getElementsByTagName("IMG")[0];
 
     imageElement.src = dataToDisplay.image.full;
-
-
 }
 
 
