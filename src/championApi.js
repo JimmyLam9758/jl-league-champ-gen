@@ -13,9 +13,9 @@ async function getChampionData() {
 }
 
 
+
 function putDataOnPage(dataToDisplay) {
-    let championNameElement = document.getElementsByClassName("championName")[0];
-    championNameElement.textContent = dataToDisplay.name + ", " + dataToDisplay.title;
+    document.getElementsByClassName("championName")[0].textContent = dataToDisplay.name + ", " + dataToDisplay.title;
 
     let tag1Display = document.getElementsByClassName("championTag1")[0];
     let tag2Display = document.getElementsByClassName("championTag2")[0];
@@ -30,12 +30,27 @@ function putDataOnPage(dataToDisplay) {
         tag2Display.textContent = "Tag 2: ";
     }
 
+    // Get image container
     let imageContainer = document.getElementsByClassName("championImage")[0];
+    // Get image element inside container
     let imageElement = imageContainer.getElementsByTagName("IMG")[0];
 
-    imageElement.src = dataToDisplay.image.full;
-}
+    // Get image source
+    // imageElement.src = "../dragontail-14.10.1/img/champion/tiles/" + dataToDisplay.id + "_0.jpg"
 
+    let baseImagePath = "../dragontail-14.10.1/img/champion/tiles/"
+    let champId = dataToDisplay.id
+    let baseSkinId = "_0.jpg"
+
+    let baseSkinImage = baseImagePath + champId + baseSkinId
+
+    // imageElement.src = baseSkinImage
+
+    let altSkinId = "_" + Math.floor(Math.random() * 20) + 1 + ".jpg";
+    let altSkinImage = baseImagePath + champId + altSkinId;
+    imageElement.src = altSkinImage;
+    
+}
 
 // Button calls this 
 async function getAndDisplayChampionData(){
