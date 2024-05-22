@@ -38,18 +38,55 @@ function putDataOnPage(dataToDisplay) {
     // Get image source
     // imageElement.src = "../dragontail-14.10.1/img/champion/tiles/" + dataToDisplay.id + "_0.jpg"
 
-    let baseImagePath = "../dragontail-14.10.1/img/champion/tiles/"
-    let champId = dataToDisplay.id
-    let baseSkinId = "_0.jpg"
+    let baseImagePath = "../dragontail-14.10.1/img/champion/tiles/";
+    let champId = dataToDisplay.id;
+    let baseSkinId = "_0.jpg";
 
-    let baseSkinImage = baseImagePath + champId + baseSkinId
+    let baseSkinImage = baseImagePath + champId + baseSkinId;
 
-    // imageElement.src = baseSkinImage
+    let skinOdds = Math.floor(Math.random() * 4) + 1;
+    console.log(skinOdds);
 
-    let altSkinId = "_" + Math.floor(Math.random() * 20) + 1 + ".jpg";
+    if (skinOdds == 1) {
+    let randomSkinId = Math.floor(Math.random() * 20) + 1;
+    let altSkinId = "_" + randomSkinId + ".jpg";
     let altSkinImage = baseImagePath + champId + altSkinId;
-    imageElement.src = altSkinImage;
-    
+
+    // Check if the image exists before setting the src attribute
+    let img = new Image();
+    img.src = altSkinImage;
+    img.onload = function() {
+        imageElement.src = altSkinImage;
+        console.log("Skin found");
+    };
+    img.onerror = function() {
+        // If the image does not exist, generate a new random skin ID and try again
+        console.log("Skin image not found, generating a new one...");
+        generateRandomSkin();
+    };
+    } else {
+    imageElement.src = baseSkinImage;
+    }
+
+    function generateRandomSkin() {
+    let randomSkinId = Math.floor(Math.random() * 20) + 1;
+    let altSkinId = "_" + randomSkinId + ".jpg";
+    let altSkinImage = baseImagePath + champId + altSkinId;
+
+    let img = new Image();
+    img.src = altSkinImage;
+    img.onload = function() {
+        console.log("Skin found")
+        imageElement.src = altSkinImage;
+    };
+    img.onerror = function() {
+        console.log("Skin image not found, generating a new one...");
+        generateRandomSkin();
+    };
+    }
+
+
+
 }
 
 // Button calls this 
