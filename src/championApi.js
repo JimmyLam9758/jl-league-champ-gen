@@ -1,7 +1,7 @@
 // Get champ data from Web API
 async function getChampionData() {
     // set var for web api
-    let championApiUrl = "https://ddragon.leagueoflegends.com/cdn/14.10.1/data/en_US/champion.json";
+    let championApiUrl = "https://ddragon.leagueoflegends.com/cdn/14.11.1/data/en_US/champion.json";
 
     // Fetch data from web api
     let response = await fetch(championApiUrl);
