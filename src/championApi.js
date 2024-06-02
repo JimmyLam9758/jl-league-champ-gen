@@ -47,7 +47,7 @@ function putDataOnPage(dataToDisplay) {
     let imageElement = imageContainer.getElementsByTagName("IMG")[0];
 
     // Set base image path and id
-    let baseImagePath = "../dragontail-14.10.1/img/champion/tiles/";
+    let baseImagePath = "./dragontail-14.10.1/img/champion/tiles/";
     let champId = dataToDisplay.id;
     // Set base skin Id
     let baseSkinId = "_0.jpg";
