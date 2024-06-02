@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
     <title>Champion Generator</title>
 </head>
 <body>
+    <header>
+        <nav id="nav-bar">
+            <a class="nav-item" href="./index.html">Home</a>
+        </nav>
+    </header>
 
+    <div class="champion-container">
 
-    <div class="championImage">
-        <img src="" alt="The image of the random generated champion.">
-    </div>
-
-    <div class="championName"></div>
-
+        <div class="championImage">
+            <img src="" alt="The image of the random generated champion.">
+        </div>
     
-    <div class="championTag1"></div>
-    <div class="championTag2"></div>
-
-    <button id="generate-champ">Generate a champion!</button>
+        <div class="championName"></div>
+    
+        
+        <div class="championTag1"></div>
+        <div class="championTag2"></div>
+    
+        <button id="generate-champ">Generate a champion!</button>
+    </div>
 
     <script src="./championApi.js"></script>
 
